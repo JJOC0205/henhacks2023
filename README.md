@@ -1,1 +1,1 @@
-# henhacks2023
+# HenHacks 2023
