@@ -3,10 +3,13 @@ from nicegui import ui
 with ui.tabs() as tabs:
     ui.tab("Home", icon="home")
     ui.tab("About", icon="info")
+    ui.tab("Help", icon="help")
 
 with ui.tab_panels(tabs, value="Home"):
     with ui.tab_panel("Home"):
-        ui.label("##Welcome to HenHub!")
+        ui.markdown('''##Welcome to HenHub!''')
+        ui.label("")
+        ui.input(label='Enter your canvas id:')
     with ui.tab_panel("About"):
         ui.label("Connect with students taking similar courses")
 
