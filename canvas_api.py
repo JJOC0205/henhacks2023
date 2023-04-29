@@ -2,6 +2,7 @@
 import requests
 import datetime
 from bakery_canvas import get_courses
+import pymongo
 
 API_URL = "https://udel.instructure.com"
 API_KEY = "25~dUCIgmpuYNRJDiQ5YFIjRQb5vcSrtWaWBAd1TL1IUfHkvHrbT5BGe4nKNwiEIcfK"
@@ -25,5 +26,6 @@ def current_courses(courses):
             if as_datetime > spring23:
                 current.append(course)
     return current
+
 #print_courses(courses)
 print(current_courses(courses))
