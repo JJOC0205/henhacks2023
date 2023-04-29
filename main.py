@@ -13,6 +13,8 @@ with ui.tab_panels(tabs, value="Home"):
         ui.input(label='Enter your Canvas ID:')
     with ui.tab_panel("About"):
         ui.label("Connect with students taking similar courses!")
+    with ui.tab_panel("Help"):
+        ui.markdown("##Follow this guid to learn how to set up the API")
 
 
 ui.run()
