@@ -1,13 +1,14 @@
 import bakery_canvas
 from nicegui import ui
-import requests
+#import requests
 import datetime
-import pymongo
+#import pymongo
 
-def get_courses(key:str):
-    return bakery_canvas.get_courses(key)
+# def get_courses(key:str):
+#     return bakery_canvas.get_courses(key)
 
-def current_courses(courses):
+def current_courses(courses,key):
+    courses = bakery_canvas.get_courses(key)
     spring23 = datetime.datetime(2023,1,24)
     current = []
     for course in courses:
