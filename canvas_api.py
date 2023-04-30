@@ -1,9 +1,10 @@
-from canvasapi import Canvas
+import bakery_canvas
+from nicegui import ui
 
-API_URL = ""
-API_KEY = ""
+API_KEY = "25~fv839vqvEiETF0SDI16GdTqqMaz6j1Tc6VX2W8Ml215MuAZB0Vs5XUrg3f7msA3O"
 
-canvas = Canvas(API_URL,API_KEY)
-
-course = canvas.get_course(123456)
-course.name
+def courses(key):
+    courses = bakery_canvas.get_courses(key)
+    for course in courses:
+        ui.label(course.name)
+        
