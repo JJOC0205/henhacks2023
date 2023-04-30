@@ -5,8 +5,8 @@ from bakery_canvas import get_courses
 import pymongo
 
 API_URL = "https://udel.instructure.com"
-API_KEY = "25~dUCIgmpuYNRJDiQ5YFIjRQb5vcSrtWaWBAd1TL1IUfHkvHrbT5BGe4nKNwiEIcfK"
-
+#API_KEY = "25~dUCIgmpuYNRJDiQ5YFIjRQb5vcSrtWaWBAd1TL1IUfHkvHrbT5BGe4nKNwiEIcfK"
+API_KEY = input("Enter API KEY")
 courses = get_courses(API_KEY)
 
 def print_courses(courses):
@@ -24,8 +24,10 @@ def current_courses(courses):
             day = int(course.end_at[9:10])
             as_datetime = datetime.datetime(year,month,day)
             if as_datetime > spring23:
-                current.append(course)
+                current.append(course.name)
     return current
 
-#print_courses(courses)
-print(current_courses(courses))
+def create_dict(name, courses):
+    return {name: current_courses(courses)}
+def create_common_classes(user: dict,database: dict):
+    return list(set(user.values).intersection(database.values))
