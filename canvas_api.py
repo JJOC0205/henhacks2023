@@ -20,10 +20,10 @@ def current_courses(key):
     return current
 
 def create_dict(key:str):
-    split_key = key.splitlines()
+    split_key = key.split(",")
     name = split_key[0]
     email = split_key[1]
     key = split_key[2]
-    return {name: current_courses(key)}
+    return {"name":name,"courses": current_courses(key), "ud-email":email}
 def create_common_classes(user: dict,database: dict):
     return list(set(user.values).intersection(database.values))

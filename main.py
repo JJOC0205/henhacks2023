@@ -11,17 +11,16 @@ with ui.tabs() as tabs:
     ui.tab("About", icon="info")
     ui.tab("Help", icon="help")
 
-    
+
 with ui.tab_panels(tabs, value="Home"):
     with ui.tab_panel("Home"):
         ui.markdown("#Welcome to HenHome!").style('color: #6E93D6')
         ui.label("To learn how to generate your Canvas access token, check out our help tab!")
         result = ui.label()
         ui.label("Remember: Do not share your token with others!")
-        ui.label("Enter your 1. name, 2. email, and 3. Canvas access token on seperate lines.")
-        ui.textarea(label='Press button below when finished:', on_change=lambda e: result.set_text(text = e.value))
-        key = result.text
-        ui.button("Click here when finished typing", on_click=run_server(key))
+        ui.label("Enter your 1. name, 2. email, and 3. All seperated by commas, no spaces.")
+        ui.textarea(label='Press button below when finished:', on_change=lambda e: result.set_text(e.value))
+        ui.button("Click here when finished typing", on_click=lambda: run_server(result.text))
     with ui.tab_panel("About"):
         ui.markdown("###Looking for a study group, project members, tutors, or friends in your major?")
         ui.markdown("###At HenHome, we connect you to students with a similar courseload!")
