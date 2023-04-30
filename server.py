@@ -18,4 +18,4 @@ def server(key):
     mydb = client["HenHacks2023"]
     mycol = mydb["user_data"]
     doc = create_dict("Rachel",key)
-    x = mycol.insert(doc)
+    x = mycol.insert_one(doc)
