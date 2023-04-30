@@ -2,7 +2,7 @@ from nicegui import ui
 import canvas_api
 
 def get_courses(key:str):
-    canvas_api.courses(key) 
+    canvas_api.get_courses(key) 
 
 with ui.tabs() as tabs:
     ui.tab("Home", icon="home")

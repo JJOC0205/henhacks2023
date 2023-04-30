@@ -4,14 +4,9 @@ import requests
 import datetime
 import pymongo
 
-API_URL = "https://udel.instructure.com"
-#API_KEY = "25~dUCIgmpuYNRJDiQ5YFIjRQb5vcSrtWaWBAd1TL1IUfHkvHrbT5BGe4nKNwiEIcfK"
-API_KEY = input("Enter API KEY")
-courses = get_courses(API_KEY)
+def get_courses(key:str):
+    return bakery_canvas.get_courses(key)
 
-def print_courses(courses):
-    for course in courses:
-        return course.name
 def current_courses(courses):
     spring23 = datetime.datetime(2023,1,24)
     current = []

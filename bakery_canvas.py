@@ -200,7 +200,7 @@ class Submission:
     id: int
     body: str
     assignment: Assignment
-    comments: list[Comment]
+    comments: list
     score: float
     grade: str
     attempts: int
@@ -212,7 +212,7 @@ class Submission:
     graded_at: str
 
 
-def get_courses(user_token: str) -> list[Course]:
+def get_courses(user_token: str) -> list:
     """
     Get all the courses available to this user.
     """
@@ -221,7 +221,7 @@ def get_courses(user_token: str) -> list[Course]:
     return create_courses(r.json(), user_token)
 
 
-def get_submissions(user_token: str, course_id: int) -> list[Submission]:
+def get_submissions(user_token: str, course_id: int) -> list:
     """
     For a given course, retrieve the submissions related to that course.
     """
@@ -234,7 +234,7 @@ def get_submissions(user_token: str, course_id: int) -> list[Submission]:
 #############################################################################
 # Helper Functions
 
-def create_courses(raw: dict, user_token: str) -> list[Course]:
+def create_courses(raw: dict, user_token: str) -> list:
     """
     Create a list of Courses from the raw dictionary data previously retrieved.
     """
