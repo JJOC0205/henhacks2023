@@ -7,7 +7,7 @@ import datetime
 # def get_courses(key:str):
 #     return bakery_canvas.get_courses(key)
 
-def current_courses(courses,key):
+def current_courses(key):
     courses = bakery_canvas.get_courses(key)
     spring23 = datetime.datetime(2023,1,24)
     current = []
@@ -22,7 +22,7 @@ def current_courses(courses,key):
                 current.append(course.name)
     return current
 
-def create_dict(name, courses,key):
-    return {name: current_courses(courses,key)}
+def create_dict(name, key):
+    return {name: current_courses(key)}
 def create_common_classes(user: dict,database: dict):
     return list(set(user.values).intersection(database.values))
