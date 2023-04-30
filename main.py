@@ -1,13 +1,11 @@
 from nicegui import ui    
 import canvas_api
 import server
-    
-key = []
 
-def run_server(api:str):
-    global key
-    key.append(api)
+def run_server(key:str):
     server.server(key)
+def grab_data(key:str):
+    server.grab_database_values(key)
     
     
 with ui.tabs() as tabs:
@@ -21,9 +19,11 @@ with ui.tab_panels(tabs, value="Home"):
         ui.markdown("#Welcome to HenHome!").style('color: #6E93D6')
         ui.label("To learn how to generate your Canvas access token, check out our help tab!")
         ui.label("Remember: Do not share your token with others!")
+        result = ui.label()
         ui.label("Enter your 1. name, 2. email, and 3. All seperated by commas, no spaces.")
         ui.textarea(label='Press button below when finished:', on_change=lambda e: result.set_text(e.value))
         ui.button("Click here when finished typing", on_click=lambda: run_server(result.text))
+        ui.button("Click here when you want data", on_click=lambda: grab_data(result.text))
     with ui.tab_panel("About"):
         ui.markdown("###Looking for a study group, project members, tutors, or friends in your major?")
         ui.markdown("###At HenHome, we connect you to students with a similar courseload!")

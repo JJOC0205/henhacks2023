@@ -26,4 +26,4 @@ def create_dict(key:str):
     key = split_key[2]
     return {"name":name,"courses": current_courses(key), "ud-email":email}
 def create_common_classes(user: dict,database: dict):
-    return list(set(user.values).intersection(database.values))
+    return list(set(user["courses"]).intersection(database["courses"]))
