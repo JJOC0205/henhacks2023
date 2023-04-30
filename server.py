@@ -36,8 +36,8 @@ def grab_database_values(key):
     mycol = mydb["user_data"]
     doc = create_dict(key)
     all_data = mycol.find()
-    common_courses = []
+    my_courses = set(doc["courses"])
     for document in all_data:
-        if create_common_classes(doc, document):
-            common_courses.append(create_common_classes(doc,document))
-    print(common_courses)
+        my_courses.intersection_update(set(document["courses"]))
+    print(my_courses)
+    return my_courses
