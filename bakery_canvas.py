@@ -254,7 +254,7 @@ def create_courses(raw: dict, user_token: str) -> list:
             for raw_course in raw_courses]
 
 
-def create_submissions(raw: dict, user_token: str, course_id: int) -> list[Submission]:
+def create_submissions(raw: dict, user_token: str, course_id: int) -> list:
     """
     Create a list of Submissions from the raw dictionary data previously retrieved.
     """

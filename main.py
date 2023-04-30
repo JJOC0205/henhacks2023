@@ -1,8 +1,8 @@
 from nicegui import ui    
 import canvas_api
 
-def get_courses(key:str):
-    canvas_api.get_courses(key) 
+def set_apikey(key:str):
+    canvas_api.create_dict("Rachel", key)
 
 with ui.tabs() as tabs:
     ui.tab("Home", icon="home")
