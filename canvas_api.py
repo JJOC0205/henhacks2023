@@ -4,9 +4,6 @@ from nicegui import ui
 import datetime
 #import pymongo
 
-# def get_courses(key:str):
-#     return bakery_canvas.get_courses(key)
-
 def current_courses(key):
     courses = bakery_canvas.get_courses(key)
     spring23 = datetime.datetime(2023,1,24)
