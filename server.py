@@ -3,7 +3,7 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from canvas_api import *
 
-def server(key:str):
+def server(key:list):
     uri = "mongodb+srv://jjoc0205:Jmwins00@henhacksdb.bzkmaw2.mongodb.net/?retryWrites=true&w=majority"
     # Create a new client and connect to the server
     client = pymongo.MongoClient(uri, server_api=ServerApi('1'))
