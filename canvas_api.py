@@ -1,7 +1,7 @@
-#from canvasapi import Canvas
+import bakery_canvas
+from nicegui import ui
 import requests
 import datetime
-from bakery_canvas import get_courses
 import pymongo
 
 API_URL = "https://udel.instructure.com"
@@ -11,8 +11,7 @@ courses = get_courses(API_KEY)
 
 def print_courses(courses):
     for course in courses:
-       print(course.name) 
-    return
+        return course.name
 def current_courses(courses):
     spring23 = datetime.datetime(2023,1,24)
     current = []
