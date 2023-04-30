@@ -22,7 +22,7 @@ def current_courses(courses,key):
                 current.append(course.name)
     return current
 
-def create_dict(name, courses):
-    return {name: current_courses(courses)}
+def create_dict(name, courses,key):
+    return {name: current_courses(courses,key)}
 def create_common_classes(user: dict,database: dict):
     return list(set(user.values).intersection(database.values))
