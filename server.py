@@ -15,7 +15,7 @@ except Exception as e:
 
 mydb = client["HenHacks2023"]
 mycol = mydb["user_data"]
-doc = create_dict("Rachel",api_key)
+doc = create_dict("Rachel",api_key[0])
 x = mydb.insert(doc)
 # cursor = mycol.find({})
 # for document in cursor: 
