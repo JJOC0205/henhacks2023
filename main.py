@@ -1,7 +1,7 @@
 from nicegui import ui    
 import canvas_api
 
-def set_apikey(key:str):
+def get_courses(key:str):
     canvas_api.courses(key) 
 
 with ui.tabs() as tabs:
