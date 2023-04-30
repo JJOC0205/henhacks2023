@@ -5,7 +5,7 @@ import server
 def run_server(key:str):
     server.server(key)
 def grab_data(key:str):
-    server.grab_database_values(key)
+    return server.grab_database_values(key)
     
 with ui.tabs() as tabs:
     ui.tab("Home", icon="home")
@@ -22,7 +22,7 @@ with ui.tab_panels(tabs, value="Home"):
         ui.label("Enter your 1. name, 2. email, and 3. All seperated by commas, no spaces.")
         ui.textarea(label='Press button below when finished:', on_change=lambda e: result.set_text(e.value))
         ui.button("Click here to upload your data", on_click=lambda: run_server(result.text))
-        ui.button("Click here for matches", on_click=lambda: grab_data(result.text))
+        ui.button("Click here for matches", on_click=lambda: ui.notify(grab_data(result.text)))
     with ui.tab_panel("About"):
         ui.markdown("Looking for a study group, project members, tutors, or friends in your major?")
         ui.markdown("At HenHome, we connect you to students with a similar courseload!")

@@ -36,8 +36,15 @@ def grab_database_values(key):
     mycol = mydb["user_data"]
     doc = create_dict(key)
     all_data = mycol.find()
+    all_names = []
     my_courses = set(doc["courses"])
     for document in all_data:
-        my_courses.intersection_update(set(document["courses"]))
-    print(my_courses)
-    return my_courses
+        if my_courses.intersection(set(document["courses"])):
+            my_courses.intersection_update(set(document["courses"]))
+            all_names.append(document["name"] + ":" + document["ud-email"] + ":" + str(my_courses.intersection(set(document["courses"]))))
+    # for document in all_data:
+    #     if set(document["courses"]).intersection(my_courses):
+    #         print(set(document["courses"]).intersection(my_courses))
+    #         all_names.append(document["name"])
+    print(all_names)
+    return (all_names)
