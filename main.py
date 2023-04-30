@@ -7,7 +7,6 @@ def run_server(key:str):
 def grab_data(key:str):
     server.grab_database_values(key)
     
-    
 with ui.tabs() as tabs:
     ui.tab("Home", icon="home")
     ui.tab("About", icon="info")
@@ -24,6 +23,8 @@ with ui.tab_panels(tabs, value="Home"):
         ui.textarea(label='Press button below when finished:', on_change=lambda e: result.set_text(e.value))
         ui.button("Click here when finished typing", on_click=lambda: run_server(result.text))
         ui.button("Click here when you want data", on_click=lambda: grab_data(result.text))
+        ui.button("Click here when you want data displayed", on_click=lambda: result.set_text())
+
     with ui.tab_panel("About"):
         ui.markdown("###Looking for a study group, project members, tutors, or friends in your major?")
         ui.markdown("###At HenHome, we connect you to students with a similar courseload!")
