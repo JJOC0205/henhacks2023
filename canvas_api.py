@@ -19,7 +19,11 @@ def current_courses(key):
                 current.append(course.name)
     return current
 
-def create_dict(name, key):
+def create_dict(key:str):
+    split_key = key.splitlines()
+    name = split_key[0]
+    email = split_key[1]
+    key = split_key[2]
     return {name: current_courses(key)}
 def create_common_classes(user: dict,database: dict):
     return list(set(user.values).intersection(database.values))
